@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LAB2_LEPEKHA_ANTON.Views.StudentDetailPage"
+xmlns:vm="clr-namespace:LAB2_LEPEKHA_ANTON.ViewModels"
+             
+             Title="Деталі студента">
+
+    <ContentPage.BindingContext>
+        <vm:StudentDetailViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="20" Spacing="12">
+        <Label Text="альна інформація" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="ПІБ:" FontAttributes="Bold" />
+            <Label Text="{Binding FullName}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="група:" FontAttributes="Bold" />
+            <Label Text="{Binding Group}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="поточний бал:" FontAttributes="Bold" />
+            <Label Text="{Binding AverageScore}" />
+        </HorizontalStackLayout>
+
+        <Label Text="змінити середній бал:" Margin="0,15,0,0" FontAttributes="Bold" />
+        <Entry Text="{Binding AverageScore}" Keyboard="Numeric" />
+
+        <Button Text="зберегти" Command="{Binding SaveCommand}" Margin="0,10,0,0" />
+        <Button Text="Назад" Command="{Binding GoBackCommand}" />
+    </VerticalStackLayout>
+</ContentPage>
